@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>
+            EDGermanFlex
+        </title>
+        <!-- Global Light & Dark & Mobile-->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/global.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/global.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/mobile/css/global.css' %}>
+        <!-- Videos Light & Dark-->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/video.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/video.css' %}>
+        <!-- Top-Banner Light & Dark -->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/top-banner.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/top-banner.css' %}>
+        <!-- Icon -->
+		<link rel="icon" href={% static 'img/nick/logo.png' %} />
+
+        <meta name="viewport" content="width=device-width">
+        <!-- JS -->
+        <script src={%  static 'js/ddMenu.js' %}></script>
+    </head>
+    <!--Hardcore starts from here-->
+    <body>
+    {% include 'nick/top-banner.html' %}
+
+    <div class="main">
+        <div class="post">
+            <label style="font-size: 24px; padding: 3px; color:rgb(23, 140, 148);"><b>Most  Viewed  Video</b></label><br>
+            <span>
+                <hr>
+                <div class="video-scroll">
+                    <iframe class='video' src="https://www.youtube.com/embed/W2MXIjjDJxA" frameborder="0" allow="accelerometer; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/RAL-EUMcDU8" frameborder="0" allow="accelerometer; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </span>
+        </div>
+        <div class="post">
+            <label style="font-size: 24px; padding: 10px; color:rgb(23, 140, 148);"><b>Character</b></label><br>
+            <span>
+                <hr>
+                <div class="video-scroll">
+                    <iframe class="video" src="https://www.youtube.com/embed/W2MXIjjDJxA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/UiCoMNXEwkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/RAL-EUMcDU8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </span>
+        </div>
+        <div class="post">
+            <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Boss Guide</b></label><br>
+            <span>
+                <hr>
+                <div class="video-scroll">
+                    <iframe class="video" src="https://www.youtube.com/embed/qw7USpop87I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/HWLhcvj7eb4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/DWyRLVjNxBY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/JUvmfMyLGxc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </span>
+        </div>
+        <div class="post">
+            <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Tip and Tricks</b></label><br>
+            <span>
+                <hr>
+                <div class="video-scroll">
+                    <iframe class="video" src="https://www.youtube.com/embed/AY8zYMIRJQk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/ExZk8XE2734" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/7Wn7kUqPld0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </span>
+        </div>
+        <div class="post">
+            <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Damage.mp4</b></label><br>
+            <span>
+                <hr>
+                <div class="video-scroll">
+                    <iframe class="video" src="https://www.youtube.com/embed/xTQ1VygFLtM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/_-IMRDcDf4k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" src="https://www.youtube.com/embed/7c-GOcR3bAk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </span>
+        </div>
+    </div>
+    </body>
+</html>

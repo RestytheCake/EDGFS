@@ -1,0 +1,42 @@
+#filter {
+  background-color: rgb(6, 150, 160);
+  border: none;
+  border: rgb(1, 95, 102) solid;
+  border-width: 0.2em;
+  border-radius: 0 0.7em 0.7em;
+}
+
+#filter:hover {
+  background-color: rgb(0, 231, 236);
+}
+
+select#sortList:hover {
+  color: rgb(0, 231, 236);
+}
+
+select#sortList {
+  display: none;
+  margin-left: 1px;
+  position: sticky;
+  margin-right: 5%;
+  border: 2px rgb(1, 95, 102) solid;
+  background-color: rgb(6, 150, 160);
+  border-radius: 0px;
+  color: black;
+  height: 50px;
+  line-height: 37px;
+  outline: none;
+}
+
+select#selectList {
+  position: sticky;
+  display: none;
+  margin-right: 5%;
+  border: 2px rgb(1, 95, 102) solid;
+  background-color: rgb(6, 150, 160);
+  border-radius: 0px;
+  color: black;
+  height: 50px;
+  line-height: 37px;
+  outline: none;
+}

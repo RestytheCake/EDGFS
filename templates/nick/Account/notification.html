@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'css/nick/holy-cascade.css' %}>
+<!--Global light & dark & mobile -->
+<link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+<link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+<link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+<!--End of scss-->
+
+<div style="text-align: -webkit-center; text-align: -moz-center">
+    <div class="post" style=" width: 400px; margin-top: 4%">
+        <h2><b>System notifications</b></h2>
+        <br>
+        <label id="warningCount">warnings found:</label>
+        <br>
+        {% for notification in notify %}
+            <hr>
+            <h4><b>{{ notification.Warning }}</b></h4>
+            <span style="margin-top: -7px">{{ notification.Description }}</span>
+            <span>Your Post:</span>
+            <div style="background-color: white">
+            <span><label  style="padding-right: 5px">Title:</label>{{ notification.Post_title }}</span>
+            <span style="margin-top: -7px"><label style="padding-right: 5px">Message:</label>{{ notification.Post_message }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>

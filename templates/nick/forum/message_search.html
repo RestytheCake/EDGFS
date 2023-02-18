@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load hashtag %}
+{% load static %}
+<html>
+    <head>
+        <title>
+            EDgermanflex / Results
+        </title>
+        <link rel="stylesheet" href={% static 'css/nick/holy-cascade.css' %}>
+		<link rel="icon" href={% static 'img/nick/logo.png' %}>
+        <!--Global light & dark & mobile -->
+        <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+        <!--End of scss-->
+        <script>
+            let filterClicked = false;
+
+        function filterSearch(){
+            let filterList = document.getElementById('advancedList')
+            let sortList = document.getElementById('sortList')
+
+            if(filterClicked === false){
+                filterList.style.display = 'block'
+                sortList.style.display = 'block'
+                filterClicked = true
+            }else{
+                filterList.style.display = 'none'
+                sortList.style.display = 'none'
+                filterClicked = false
+            }
+
+        }
+
+        </script>
+    </head>
+    <!--Hardcore starts from here-->
+
+    <script>
+        //change clicked to profileClicked, more understandable
+        let profileClicked = false;
+
+        function ddMenu(){
+            let ddcont = document.getElementById('dropdown-content');
+
+            if(profileClicked == false){
+                ddcont.style.display = 'block'
+                profileClicked = true
+            }else{
+                ddcont.style.display = 'none'
+                profileClicked = false
+            }
+        }
+
+    </script>
+    <body>
+        <div id="containor">
+            <div id="topBanner">
+
+                <!--u have this-->
+			{% if request.user.is_authenticated %}
+            <div id="dropdown"  style="float: right; margin-right: 50px;">
+                <label onclick="ddMenu()">{{ request.user.username }}</label>
+                <div  id="dropdown-content">
+                    <a href="{% url 'ed:profile' %}" style="float: left;">Profile</a>
+                    <a href="{% url 'ed:logout' %}" style="float: left;">Logout</a>
+                </div>
+            </div>
+			{% else %}
+			<div id="dropdown"  style="float: right; margin-right: 70px; margin-top: 20px">
+                <label onclick="ddMenu()">New ?</label>
+                <div  id="dropdown-content">
+                    <a href="{% url 'ed:profile' %}" style="float: left;">Profile</a>
+                    <a href="{% url 'ed:register' %}" style="float: left;">Register</a>
+                    <a href="{% url 'ed:login_view' %}" style="float: left;">Login</a>
+                </div>
+            </div>
+			{% endif %}
+                <div>
+                    <label>Welcome to the official EDGermanflex site!</label>
+                    <img style="width: 120px; height: 120px; float: left; padding-left: 10px;" src="{% static 'img/nick/logo.png' %}">
+                </div>
+            </div>
+
+
+
+            <div id="scroll">
+                <button class="buttonTop" onClick="window.location='{% url 'ed:home' %}';">Home</button>
+                <button class="buttonTop" onClick="window.location='{% url 'ed:video' %}';">Videos</button>
+                <button class="buttonTop" onClick="window.location='{% url 'ed:forum' %}';">Forum</button>
+                <button class="buttonTop" onClick="window.location='{% url 'ed:posts' %}';">Post</button>
+                <button class="buttonTop" onClick="window.location='{% url 'ed:contact' %}';">Contact</button>
+            </div>
+            <form action="{% url 'ed:message_search' %}" method="get">
+            <div id="search">
+                <input type="search" name="searching" id="searchBar" placeholder="Quick Search">
+                <button id="searchButton"><img style="width: 25px; height: 25px;" src={% static 'img/nick/search.png' %} > </button>
+                <div id='filter' onclick='filterSearch()'><img  style="width: 40px; height: 40px;" src={% static 'img/nick/3dots.png' %}></div>
+                <div id="filterNewOld">
+                    <select name="Sort by" id='sortList'>
+                        <option value="new">New</option>
+                        <option value="old">Old</option>
+                    </select>
+                </div>
+               <div id="advancedList">
+                    <a class='advButton' href="{% url 'ed:advfilter' %}">Advanced</a>
+                </div>
+            </div>
+            </form>
+
+            {% if search %}
+			{% for data in search %}
+                <div class="post">
+                <label style="font-size: 24px; padding: 10px; color: rgb(0, 0, 0);"><b>{{ data.title }}</b></label><br><br>
+                <a id="notwhite" href='{% url 'team:profile' %}?user={{ data.user }}' style="float: none; padding: 10px;">{{ data.user }}</a>
+                <span>{{ data.message }}</span>
+                <span id="tags">Keywords : {% check data.tags %}</span>
+                <a id="notwhite" href="{% url 'ed:comment' %}?user={{ data.user }}&title={{ data.title }}">Comment</a>
+                </div>
+            {% endfor %}
+            {% else %}
+                <div class="post">
+                <label style="font-size: 24px; padding: 10px; color: rgb(0, 0, 0);"><b>ERROR 404</b></label><br><br>
+                <a id="notwhite" href='{% url 'team:profile' %}/?user=-System-' style="float: none; padding: 10px;">-System-</a>
+                <span>We searched and searched but we couldn't find for what you where looking.<br>Search for anything else or go Back</span>
+                <div style="padding-right: 20px; padding: 10px;"><a id="notwhite" >Don't try it</a></div>
+                </div>
+            {% endif %}
+
+        </div>
+    </body>
+</html>

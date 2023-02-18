@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            EDGermanFlex
+        </title>
+        <link rel="stylesheet" href={% static 'css/nick/forum_create.css' %}>
+        <link rel="icon" href={% static 'img/nick/logo.png' %}>
+        <!--Global light & dark & mobile -->
+        <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+        <!--End of scss-->
+
+    </head>
+    <!--Hardcore starts from here-->
+
+    <body>
+        <center>
+         <!--create post for forum-->
+        <form action="{% url 'ed:create' %}" method="post">
+         {% if request.user.is_authenticated %}
+             {% csrf_token %}
+         <div id="createPost">
+            <label style="padding-right: 10px; float: left;">Topic: </label>
+             <label style="float: right; padding: 5px 10px">Logged in as : {{ request.user.username }}</label><br>
+            {{ form.title }}<br><br>
+            <label style=" float: left;">Keywords:</label><br>
+            {{ form.tags }}<br><br>
+            <label style="padding-right: 10px; float: left;">Description: </label><br>
+            {{ form.message }}<br><br>
+             <button type="submit" style="float: right;">Submit</button><br>
+        </div>
+        </form>
+        {% else %}
+             <div id="createPost">
+                <label>
+                    You need to be logged in &nbsp; &nbsp; <a href="{% url 'team:register' %}">Register</a> or <a href="{% url 'team:login_view' %}">Login</a>
+                </label>
+             </div>
+        {% endif %}
+        </center>
+    </body>
+</html>

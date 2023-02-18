@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href={% static 'css/nick/register.css' %}>
+    <link rel="icon" href={% static 'img/nick/logo.png' %}>
+    <!--Global light & dark & mobile -->
+    <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+    <!--End of scss-->
+    <title>EDGermanFlex / Register</title>
+</head>
+<body>
+    <center>
+    <div id="container">
+        <form method="POST" action=" ">
+            {% csrf_token %}
+            <label style="font-size: 24px; padding: 10px; color: rgb(0, 0, 0);"><b>Registration</b></label><br><br><br>
+            <label style="float: left; ">Username:</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ form.username }}
+            <br>
+            <br>
+            <label style="float: left;">Password:</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ form.password1}}
+            <br>
+            <br>
+            <label style="float: left; padding-right: 20px;">Confirm password:</label>
+            {{ form.password2 }}
+            <br>
+            <br>
+            <button type="submit" class="registerSubmit">Submit</button>
+            <label style="float: left; font-size: 12px;">Already have account?</label><a href="{% url 'team:login_view' %}" style="float: left; padding-left: 10px; font-size: 12px;">Login</a>
+            {{ form.errors }}
+        </form>
+    </div>
+</center>
+<script>
+    var form_fields = document.getElementsByTagName('Input')
+    form_fields[1].placeholder='Username'
+    form_fields[2].placeholder='Enter Password'
+    form_fields[3].placeholder='Re-enter Password'
+
+    for (var field in form_fields){
+        form_fields[field].className += ' form-control'
+    }
+</script>
+</body>
+</html>

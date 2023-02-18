@@ -1,0 +1,56 @@
+{% load static %}
+{% load Token %}
+{% load Tokenr %}
+
+<!-- Input Light -->
+<link rel="stylesheet" href="{% static 'css/nick/light/css/input.css' %}">
+<!--Global light & dark & mobile -->
+<link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+<link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+<link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+<!--End of scss-->
+
+<script>
+    function getToken() {
+        navigator.clipboard.writeText('{% find request.user %}')
+    }
+</script>
+
+<div style="text-align: -webkit-center; text-align: -moz-center">
+    <div class="post" style=" width: 400px; margin-top: 4%;">
+        <h2><b>Settings</b></h2><br>
+
+        <div style="display: flex">
+        <div  style="text-align: left;">
+            <label>Account:</label><hr>
+            <label>Change name:</label><br>
+            <label>
+                <input type="text" placeholder="{{ request.user.username }}">
+            </label><br><br>
+
+            <label>Change password</label><br>
+            <label>
+                <input type="password"  placeholder="new Password">
+            </label><br><br>
+            <label>Repeat password</label><br>
+            <label>
+                <input type="password" placeholder="Password">
+            </label><br><br>
+            <label>Password</label><br>
+            <label>
+                <input type="password" placeholder="Enter Current Password">
+            </label><br><br>
+            <button type="submit">Update</button>
+        </div>
+        <div id="Help" style="text-align: right; margin-left: 50px">
+            <label>Help:</label><hr>
+            <label>Reset your Account Token</label>
+            <button class="Helpclass">Reset Token</button>
+            <br><br>
+            <label>Copy your Account Token</label>
+            <button onclick="{% reset request.user %}">Copy token </button>
+
+        </div><br>
+</div>
+    </div>
+</div>

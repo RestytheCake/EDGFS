@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            EDGermanFlex / Contacts
+        </title>
+        <link rel="stylesheet" href={% static 'css/nick/contacts.css' %}>
+		<link rel="icon" href={% static 'img/nick/logo.png' %} />
+        <!--Global light & dark & mobile -->
+        <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+        <!--End of scss-->
+
+        <script src={% static 'js/ddMenu.js' %}></script>
+    </head>
+    <!--Hardcore starts from here-->
+    <body>
+            {% include 'nick/top-banner.html' %}
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color:rgb(23,140,148);"><b>How to Contact me  /  Sozial Media</b></label><br>
+                    <span>Click on the Name to open the link :
+                        <li style="padding-top: 3px"><a class='conlink' href="https://discord.gg/BGtnx2b">Discord</a></li>
+                        <li style="padding-top: 3px"><a class="conlink" href="https://www.youtube.com/channel/UC4XnMk-zqFX2KDXNR0Skumw">Youtube</a></li>
+                        <li style="padding-top: 3px"><a class="conlink" href="https://twitter.com/nick56245406?s=09">Twitter</a></li>
+                    </span>
+                </div>
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Where do I live</b></label><br>
+                    <span>Nick is living somewhere </span>
+                </div>
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Found Any Bugs or having Problems ?</b></label><br>
+                    <span style="padding-left: 20px">Here are some options
+                        <li style="padding-top: 3px">Make Screeshots and send it in the Discord Server Support</li>
+                        <li style="padding-top: 3px"><a href="{% url 'ed:problem' %}">Use the Site support by clicking on this</a></li>
+                    </span>
+                </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+{% load hashtag %}
+<html lang="en">
+    <head>
+        <title>
+            EDgermanflex
+        </title>
+        <!-- Global Light & Dark -->
+        <link rel="stylesheet" href={% static "css/nick/light/css/global.css" %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/global.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/mobile/css/global.css' %}>
+        <!-- Top-Banner Light & Dark-->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/top-banner.scss' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/top-banner.css' %}>
+        <!-- Searchbar Light & Dark -->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/searchbar.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/searchbar.css' %}>
+        <!-- Create Post Light & Dark -->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/create-post.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/create-post.css' %}>
+        <!-- Icon -->
+        <link rel="icon" href={% static "img/nick/logo.png" %}>
+
+        <meta name="viewport" content="width=device-width">
+        <!-- JS -->
+        <script src={% static 'js/filterSearch.js' %}></script>
+        <script src={% static 'js/newPostUsers.js' %}></script>
+        <script src={% static 'js/ddMenu.js' %}></script>
+    </head>
+    <!--Hardcore starts from here-->
+    <body>
+    {% include 'nick/top-banner.html' %}
+    <!--here new stuff going on-->
+    <form action="{% url 'ed:searchworker' %}" method="get">
+        <div id="search">
+            <input  type="search" name="user" id="searchBar" placeholder="Username">
+            <input type="search" name="title" id="searchBar" placeholder="Title">
+            <button id="searchButton"><img src="{% static 'img/nick/search.png' %}" style="width: 25px; height: 25px;" alt=""></button>
+            <div id='filter' onclick='filterSearch()'><img src="{% static 'img/nick/3dots.png' %}" style="width: 40px; height: 40px;" alt=""></div>
+
+
+            <div id="advancedList">
+                    <a class='advButton' href="{% url 'ed:advfilter' %}">Advanced</a>
+                </div>
+        </div>
+    </form>
+            <!--end of new things-->
+            <button onclick="location.href='{% url 'ed:create' %}';" id='buttonNewPost'>Create new post</button>
+            {% for data in message %}
+                <div class="post" id="{{ data.user }}={{ data.title }}">
+                <label style="font-size: 24px; padding: 10px; color: rgb(0,0,0);"><b>{{ data.title }}</b></label>
+                <label id='date' style="color: rgb(179, 163, 149);">{{ data.created_at.day }}.{{ data.created_at.month }}.{{ data.created_at.year }}</label>
+                <label style="font-size: 10px;color: rgb(179, 163, 149); padding-left: 5px;">UTC:</label>
+                <label id='time' style="color: rgb(179, 163, 149);">{{ data.created_at.hour}}:{{ data.created_at.minute }}</label><br><br>
+                <a id="notwhite" href='{% url 'team:profile' %}?user={{ data.user }}' style="float: none; padding: 10px;">{{ data.user }}</a>
+                <span>{{ data.message }}</span>
+                <span id="tags">Keywords :  {% check data.tags %}</span>
+                <div style="padding-right: 20px; padding: 5px;"><a id="notwhite" href="{% url 'team:comment' %}?user={{ data.user }}&title={{ data.title }}">Comment</a></div>
+                <br>
+                </div>
+            {% endfor %}
+    </body>
+</html>

@@ -1,0 +1,55 @@
+@media (prefers-color-scheme: dark) {
+  #filter {
+    border-radius: 0 0.7em 0.7em 0;
+    background-color: rgb(121, 39, 18);
+    height: 45px;
+    border: 0.2em rgb(77, 22, 8) solid;
+  }
+  #search {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #searchBar {
+    border: rgb(121, 39, 18) solid;
+    outline: none;
+  }
+  #searchButton {
+    border: 0.2em rgb(77, 22, 8) solid;
+    background-color: rgb(121, 39, 18);
+    color: white;
+    font-weight: bold;
+    padding-bottom: 0.2em;
+    width: 40px;
+  }
+  #searchButton:hover {
+    background-color: rgb(235, 97, 33);
+  }
+  a.advButton:link, a:visited {
+    background-color: rgb(121, 39, 18);
+    border: 2px rgb(77, 22, 8) solid;
+    color: white;
+    padding: 14px 0;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none;
+  }
+  a#notwhite {
+    color: rgb(235, 97, 33);
+  }
+  select#sortList:hover {
+    color: rgb(235, 97, 33);
+  }
+  #advancedList {
+    position: sticky;
+    display: none;
+  }
+  #advButton {
+    background-color: rgb(121, 39, 18);
+    border: 2px rgb(77, 22, 8) solid;
+    margin-left: 2px;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+  }
+}

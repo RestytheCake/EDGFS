@@ -1,0 +1,67 @@
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: rgb(235, 97, 33);
+  }
+  .hoverable:hover {
+    background-color: rgb(216, 202, 181);
+  }
+  body {
+    background-image: url("../../../../img/nick/patterndark.png");
+    background-size: 2000px;
+    background-repeat: inherit;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    outline: none;
+  }
+  .post {
+    background-color: #faebd7;
+    border: 30px solid transparent;
+    border-image: url("../../../../img/nick/darkthiccborder.png") 20% round;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    width: auto;
+    height: max-content;
+  }
+  .container {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  button {
+    background-color: rgb(121, 39, 18);
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type=submit] {
+    background-color: rgb(121, 39, 18);
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type=text], [type=date] {
+    border-color: rgb(121, 39, 18);
+    outline: none;
+  }
+  input[type=submit]:hover {
+    background-color: rgb(235, 97, 33);
+  }
+  a {
+    float: right;
+    color: rgb(121, 39, 18);
+  }
+  a:hover {
+    color: rgb(235, 97, 33);
+  }
+  span {
+    display: block;
+    word-wrap: break-word;
+    font-size: 16px;
+    padding: 10px;
+  }
+}

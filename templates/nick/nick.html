@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>
+            EDGermanFlex
+        </title>
+        <!-- Global light & Dark | Mobile -->
+        <link rel="stylesheet" href={% static "css/nick/light/css/global.css" %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/global.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/mobile/css/global.css' %}>
+        <!-- Top-Banner Light & Dark-->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/top-banner.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/top-banner.css' %}>
+        <!-- Searchbar Light & Dark -->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/searchbar.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/searchbar.css' %}>
+        <!-- Create Post Light & Dark -->
+        <link rel="stylesheet" href={% static 'css/nick/light/css/create-post.css' %}>
+        <link rel="stylesheet" href={% static 'css/nick/dark/css/create-post.css' %}>
+        <!-- Top-Banner Light & Dark | Mobile -->
+
+        <!-- Icon -->
+        <link rel="icon" href={% static "/img/nick/logo.png" %} />
+        <!-- Meta data -->
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="theme-color" content="#4285f4"/>
+        <meta name="description" content="This is the official Site for EDGermanFlex about Elemental Dungeon">
+        <!-- JS -->
+        <script src={% static 'js/ddMenu.js' %}></script>
+    </head>
+    <!--Hardcore starts from here-->
+   <body>
+   <!-- Top-Banner HTML-->
+   {% include 'nick/top-banner.html' %}
+
+   <!-- Post / Some Information in Main Page -->
+   <div class="post">
+       <label style="font-size: 24px; padding: 10px; color:rgb(23, 140, 148);"><b>About Developers</b></label><br>
+       <span class="thx" >Huge thanks goes to
+           <li>Resty - for Creating the Site</li>
+           <li>Resty - for helping with site and coding cool stuff</li>
+           <li>Resty - for Keeping the Site Alive</li>
+       </span>
+   </div>
+
+   <div class="post">
+       <label style="font-size: 24px; padding: 10px; color:rgb(23, 140, 148);"><b>General topics</b></label><br>
+       <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</span>
+   </div>
+
+   <div class="post">
+       <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>Videos timetable</b></label><br>
+       <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</span>
+   </div>
+   <!-- Information Ends Here -->
+   </body>
+</html>

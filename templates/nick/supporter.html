@@ -1,0 +1,75 @@
+static<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>
+            EDGermanFlex
+        </title>
+        <link rel="stylesheet" href={% static 'css/nick/nick.css' %}>
+		<link rel="icon" href={% static 'img/nick/logo.png' %} />
+        <!--Global light & dark & mobile -->
+        <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+        <!--End of scss-->
+        <meta name="viewport" content="width=device-width">
+        <!-- JS -->
+        <script src="{% static 'js/ddMenu.js' %}"></script>
+    </head>
+    <!--Hardcore starts from here-->
+    <body>
+        <div id="containor">
+            <div id="topBanner">
+                <div>
+                    <img class="logo" src={% static 'img/nick/logo.png' %} >
+                    <label class="welcome" >Welcome to the official EDGermanflex site!</label>
+                    {% if request.user.is_authenticated %}
+                    <div id="dropdown"  style="float: right; margin-right: 70px; margin-top: 20px">
+                        <label onclick="ddMenu()">{{ request.user.username }}</label>
+                            <div  id="dropdown-content">
+                                <a href="/team/nick/myaccount" style="float: left;">Profile</a>
+                                <a href="/team/nick/logout" style="float: left;">Logout</a>
+                            </div>
+                    </div>
+                    {% else %}
+                        <div id="dropdown"  style="float: right; margin-right: 70px; margin-top: 20px">
+                        <label onclick="ddMenu()">New ?</label>
+                            <div  id="dropdown-content">
+                                <a href="/team/nick/myaccount" style="float: left;">Profile</a>
+                                <a href="/team/nick/register" style="float: left;">Register</a>
+                                <a href="/team/nick/login" style="float: left;">Login</a>
+                            </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="scroll">
+                <button class="buttonTop" onClick="window.location='/team/nick/';">Home</button>
+                <button class="buttonTop" onClick="window.location='/team/nick/videos';">Videos</button>
+                <button class="buttonTop" onClick="window.location='/team/nick/forum';">Forum</button>
+                <button class="buttonTop" onClick="window.location='/team/nick/posts';">Post</button>
+                <button class="buttonTop" onClick="window.location='/team/nick/contact';">Contact</button>
+            </div>
+            <div class="main">
+                <form action="/team/nick/forum/search" method="get">
+                <div id="search">
+                    <input type="search" name="User" id="searchBar" placeholder="Quick Search">
+                    <button type="submit" id="searchButton"><img src="{% static 'img/nick/search.png' %}" style="width: 25px; height: 25px;"></button>
+                </div>
+            </form>>
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color:rgb(23, 140, 148);"><b>smth</b></label><br>
+                    <span class="thx" >You need to be Logged in</span>
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color:rgb(23, 140, 148);"><b>smth</b></label><br>
+                    <span>Only Supporter</span>
+                </div>
+                <div class="post">
+                    <label style="font-size: 24px; padding: 10px; color: rgb(23, 140, 148);"><b>smth</b></label><br>
+                    <span>Supporter Only</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

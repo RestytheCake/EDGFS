@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+{% load static %}
+{% load hashtag %}
+{% load friendscheck %}
+<html>
+    <title>
+        EDGermanFlex
+    </title>
+    <link rel="stylesheet" href={% static 'css/nick/profile.css' %}>
+    <link rel="icon" href={% static 'img/nick/logo.png' %}>
+    <!--Global light & dark & mobile -->
+    <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+    <!--End of scss-->
+    <script>
+        function stf() {
+            let switchfriends = document.getElementById('Switchf');
+            let switchmessage = document.getElementById('Switchm');
+
+            let fab = document.getElementById('fab');
+            let cc = document.getElementById('cc');
+            let msg = document.getElementById('counter');
+            let friend = document.getElementById('friends');
+            let fr = document.getElementById('fr_click');
+
+            if(switchmessage.style.display === 'none'){
+                switchfriends.style.display = 'none'
+                switchmessage.style.display = 'inline'
+
+                friend.style.display = 'inline'
+                fr.style.display = 'inline'
+                fab.style.display = 'inline'
+                msg.style.display = 'none'
+                cc.style.display = 'none'
+            }
+        }
+
+        function stm() {
+            let switchfriends = document.getElementById('Switchf');
+            let switchmessage = document.getElementById('Switchm');
+
+            let cc = document.getElementById('cc');
+            let msg = document.getElementById('counter');
+            let friend = document.getElementById('friends');
+            let fr = document.getElementById('fr_click');
+            let fab = document.getElementById('fab');
+
+            if(switchfriends.style.display === 'none'){
+                switchfriends.style.display = 'inline'
+                switchmessage.style.display = 'none'
+
+                friend.style.display = 'none'
+                fr.style.display = 'none'
+                fab.style.display = 'none'
+                msg.style.display = 'inline'
+                cc.style.display = 'inline'
+            }
+        }
+
+        function messagef(){
+            let friend = document.getElementById('friendlist');
+            let msg = document.getElementById('messages');
+            let fr = document.getElementById('fr');
+            let comments = document.getElementById('comments');
+            let fa = document.getElementById('fs');
+            if(msg.style.display === 'none'){
+                msg.style.display = 'inline'
+                friend.style.display = 'none'
+                comments.style.display = 'none'
+                fr.style.display = 'none'
+                fa.style.display = 'none'
+                }}
+
+        function friendsf() {
+            let friend = document.getElementById('friendlist');
+            let msg = document.getElementById('messages');
+            let fr = document.getElementById('fr');
+            let comments = document.getElementById('comments');
+            let fa = document.getElementById('fs');
+            if(friend.style.display === 'none'){
+                msg.style.display = 'none'
+                friend.style.display = 'inline'
+                comments.style.display = 'none'
+                fr.style.display = 'none'
+                fa.style.display = 'none'
+                }
+        }
+
+        function fr() {
+            let friend = document.getElementById('friendlist');
+            let msg = document.getElementById('messages');
+            let fr = document.getElementById('fr');
+            let comments = document.getElementById('comments');
+            let fa = document.getElementById('fs');
+            if(fr.style.display === 'none' ){
+                msg.style.display = 'none'
+                friend.style.display = 'none'
+                comments.style.display = 'none'
+                fr.style.display = 'inline'
+                fa.style.display = 'none'
+                }
+        }
+
+        function ccf() {
+            let friend = document.getElementById('friendlist');
+            let msg = document.getElementById('messages');
+            let fr = document.getElementById('fr');
+            let comments = document.getElementById('comments');
+            let fa = document.getElementById('fs');
+            if(comments.style.display === 'none' ){
+                msg.style.display = 'none'
+                friend.style.display = 'none'
+                fr.style.display = 'none'
+                comments.style.display = 'inline'
+                fa.style.display = 'none'
+                }
+        }
+
+        function faf() {
+            let friend = document.getElementById('friendlist');
+            let msg = document.getElementById('messages');
+            let fr = document.getElementById('fr');
+            let comments = document.getElementById('comments');
+            let fa = document.getElementById('fs');
+            if(comments.style.display === 'none' ){
+                msg.style.display = 'none'
+                friend.style.display = 'none'
+                fr.style.display = 'none'
+                comments.style.display = 'none'
+                fa.style.display = 'inline'
+                }
+        }
+    </script>
+    <body>
+        <center>
+        <div id="profile">
+        {% for profil in profile %}
+            <label style="font-size: 20px;"><b>{{ profil.username }}</b></label><br><br>
+
+            <div style="font-size: 13px;">
+            {% if profil.discord_member %}
+                <label id='discordTag' >{{ profil.discord_name }} &nbsp;&nbsp;|</label>
+            {% else %}
+                <label id='discordTag'>No Discord Member &nbsp;&nbsp;|</label>
+            {% endif %}
+            {% if profil.muffin_family %}
+             <label id='muffinRole' style="padding-left: 10px;">{{ profil.muffin_role}} &nbsp;&nbsp; |</label>
+            {% endif %}
+            {% if profil.special %}
+                <label id='specialRole' style="padding-left: 10px;">{{ profil.special_roles}}</label>
+            {% else %}
+              <label id='specialRole'  style="padding-left: 10px;">Elemental Dungeon Player </label>
+            {% endif %}
+
+            </div>
+            {% if request.user.username == user %}
+            <hr>
+            <label id="Switchf" onclick="stf()">Switch to Friends</label>
+            <label id="Switchm" style="display: none" onclick="stm()">Switch to Messages</label>
+            {% endif %}
+            <hr>
+            <div id="counter" style="display: inline" onclick="messagef()"><label> Messages posted : {{ msg_counter }}</label></div>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label id="cc" onclick="ccf()">Comments Posted : {{ cc_counter }}</label>
+            <div id="friends" style="display: none" onclick="friendsf()"><label> Friends : {% for friend in friend_data %}{{ friend.friend_list.count }}{% endfor %}</label></div>
+            <div id="fr_click" style="display: none" onclick="fr()"><label onclick="fr()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Requests : {% for friend in friend_data %}{{ friend.fa_list.count }}{% endfor %}</label></div>
+            <div id="fab" style="display:none;" onclick="faf()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Request : {% for friend in friend_data %}{{ friend.fa_send.count }}{% endfor %}</div>
+            <div id="messages" >
+        {% for msg in data %}
+            <hr>
+            <div  id="userMessage" onclick="location.href='{% url 'team:comment' %}?user={{ msg.user }}&title={{ msg.title }}';">
+            <label id='userTopic' style="font-size: large;"><b>{{ msg.title }}</b></label><br><br>
+            <label id='userDescription'> {{ msg.message}}</label><br><br>
+            <label id='userKeyword' style="font-size: 13px;">{% check msg.tags %}</label>
+            </div>
+        {% endfor %}
+        </div>
+        <div id="comments" style="display:none;">
+            {% for comment in cc_data %}
+            <hr>
+            <div  id="userMessage" onclick="location.href={% url 'team:comment' %}?user={{ comment.main_post_user }}&title={{ comment.main_post_title }}';">
+            <label id='userTopic' style="font-size: large;"><b>Title : {{ comment.main_post_title }}</b></label><br>
+            <label id='userTopic' style="font-size: large;"><b>User : {{ comment.main_post_user }}</b></label><br><br>
+            <label id='userDescription'>Comment : {{ comment.comments}}</label><br><br>
+            </div>
+        {% endfor %}
+        </div>
+        <div id="friends_list">
+        </div>
+        {% endfor %}
+        <div id="friendlist" style="display: none">
+        {% if user == request.user.username %}
+
+        {% else %}
+            <hr>
+        <label id="fcheck" onclick="window.location='{% url 'team:fa' %}?user={{ user }}&user_request={{ request.user.username }}&fa=true'">{% fcheck user request.user.username %}</label>
+        {% endif %}
+            {% for friend in friend_data %}
+                {% if friend.friend_list.count > 0 %}
+
+                {% for list in friend.friend_list.all %}
+                    <hr>
+                    <div  id="userMessage" onclick="location.href='{% url 'team:profile' %}?user={{ list }}';">
+                        <label id='userTopic' style="font-size: large;"><b>{{ list }}</b></label><br><br>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <hr>
+                    <div  id="userMessage">
+                    <center>
+                        <label id='userTopic' style="font-size: large;"><b>This User don't have any Friends</b></label><br><br>
+                    </center>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div id="fr" style="display: none">
+        {% for friend in friend_data %}
+            {% for list in friend.fa_list.all %}
+                <hr>
+                    <div  id="userMessage" onclick="location.href='{% url 'team:profile' %}?user={{ list }}';">
+                        <center><label id='userTopic' style="font-size: large;"><b>{{ list }}</b></label></center><br><br>
+                        </div>
+                        <label style="float: left; margin-left: 15px" onclick="window.location='{% url 'team:fa' %}?user={{ list }}&user_request={{ request.user.username }}&fa=decline'">Decline</label>
+                        <label style="float: right; margin-right: 15px" onclick="window.location='{% url 'team:fa' %}?user={{ list }}&user_request={{ request.user.username }}&fa=accept'">Accept</label>
+
+            {% endfor %}
+        {% endfor %}
+        </div>
+        <div id="fs" style="display: none">
+            {% for friend in friend_data %}
+            {% for list in friend.fa_send.all %}
+                <hr>
+                    <div  id="userMessage" onclick="location.href='{% url 'team:profile' %}?user={{ list }}';">
+                        <center><label id='userTopic' style="font-size: large;"><b>{{ list }}</b></label></center><br><br>
+                        </div>
+                        <label style="float: right; margin-right: 15px" onclick=window.location='{% url 'team:fa' %}?user={{ list }}&user_request={{ request.user.username }}&fa=accept'>Cancel</label>
+
+            {% endfor %}
+        {% endfor %}
+        </div>
+        </div>
+        </center>
+    </body>
+</html>
+
+<!--<textarea id='createDesc' style="height: 50px;" maxlength="255"></textarea><br><br>     <label style="padding-right: 10px; float: left;">Status:</label><br>-->
+<!--            <input type="submit" style="float: right;"><br>-->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href={% static 'css/nick/login.css' %}>
+    <link rel="icon" href={% static 'img/nick/logo.png' %}>
+    <!--Global light & dark & mobile -->
+    <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nick/mobile/css/global.css' %}">
+    <!--End of scss-->
+    <meta name="viewport" content="width=device-width">
+    <title>EDGermanFlex / Login</title>
+</head>
+<body>
+<center>
+    <form method="POST" action="">
+        <div id="container">
+            {% csrf_token %}
+        <label style="font-size: 24px; padding: 10px; color: rgb(0, 0, 0);"><b>Login</b></label><br><br>
+            {% if reasonError1 %}
+                {{ reasonError1 }}
+                <br>
+                {{ reasonError2 }}
+                <br>
+            {% endif %}
+            <br>
+        <label style="float: left; ">Username:</label>
+            <label for="logUser"></label><input style="float: right;" type="text" name="username" placeholder="username" id="logUser"><br><br>
+        <label style="float: left; padding-right: 20px;">Password:</label>
+            <label for="logPassword"></label><input style="float: right;" type="password" name="password" placeholder="password" id="logPassword" minlength="8"><br><br><br>
+        <button type="submit" style="float: right;" class="registerSubmit">Submit</button>
+        <label style="float: left; font-size: 12px;">Don't have account?</label><a href="{% url 'team:register' %}" style="float: left; padding-left: 10px; font-size: 12px;">Register</a><br>
+        <a style="float: left; font-size: 14px;" href="{% provider_login_url 'google' %}">Login with Google</a><br>
+        <a style="float: left; font-size: 14px;" href="{% provider_login_url 'discord' %}">Login with Discord</a>
+    </div>
+    </form>
+</center>
+</body>
+</html>

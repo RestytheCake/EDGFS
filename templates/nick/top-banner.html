@@ -1,0 +1,33 @@
+{% load static %}
+<div id="topBanner">
+    <div>
+        {% if request.user.is_authenticated %}
+            <div id="dropdown"  style="float: right; margin-right: 70px; margin-top: 20px">
+                <label onclick="ddMenu()">{{ request.user.username }}</label>
+                <div  id="dropdown-content">
+                    <a href='{% url 'ed:profile' %}?user={{ request.user.username }}' style="float: left;">Profile</a>
+                    <a href='{% url 'ed:notification' %}" style="float: left;'>Notification</a>
+                    <a href='{% url 'ed:settings' %}" style="float: left;'>Settings</a>
+                    <a href='{% url 'ed:logout' %}" style="float: left;'>Logout</a>
+                </div>
+            </div>
+        {% else %}
+            <div id="dropdown"  style="float: right; margin-right: 70px; margin-top: 20px">
+                <label onclick="ddMenu()">New ?</label>
+                <div  id="dropdown-content">
+                    <a href="{% url 'ed:register' %}" style="float: left;">Register</a>
+                    <a href="{% url 'ed:logout' %}" style="float: left;">Login</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<!-- Buttons for Top-Banner -->
+<div id="scroll">
+    <button class="buttonTop" onClick="window.location='{% url 'ed:home' %}';">Home</button>
+    <button class="buttonTop" onClick="window.location='{% url 'ed:video' %}';">Videos</button>
+    <button class="buttonTop" onClick="window.location='{% url 'ed:forum' %}';">Forum</button>
+    <button class="buttonTop" onClick="window.location='{% url 'ed:posts' %}';">Post</button>
+    <button class="buttonTop" onClick="window.location='{% url 'ed:contact' %}';">Contact</button>
+</div>
+<!-- End for Buttons -->
