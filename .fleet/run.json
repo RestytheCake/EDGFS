@@ -1,0 +1,10 @@
+{
+	"configurations": [
+		{
+			"type": "python",
+			"name": "Django Server",
+			"arguments": ["$PROJECT_DIR$/manage.py", "runserver", "8000"],
+		},
+
+	]
+}

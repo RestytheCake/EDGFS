@@ -1,6 +1,6 @@
 #from django import template
-#from django.contrib.auth.models import User
-#from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 
 #register = template.Library()
 #
