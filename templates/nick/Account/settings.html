@@ -1,9 +1,7 @@
 {% load static %}
-{% load Token %}
-{% load Tokenr %}
 
 <!-- Input Light -->
-<link rel="stylesheet" href="{% static 'css/nick/light/css/input.css' %}">
+<link rel="stylesheet" href="{% static 'css/nick/input.css' %}">
 <!--Global light & dark & mobile -->
 <link rel="stylesheet" href="{% static 'css/nick/light/css/global.css' %}">
 <link rel="stylesheet" href="{% static 'css/nick/dark/css/global.css' %}">
@@ -12,7 +10,7 @@
 
 <script>
     function getToken() {
-        navigator.clipboard.writeText('{% find request.user %}')
+        navigator.clipboard.writeText('Not Implemented')
     }
 </script>
 
@@ -48,7 +46,7 @@
             <button class="Helpclass">Reset Token</button>
             <br><br>
             <label>Copy your Account Token</label>
-            <button onclick="{% reset request.user %}">Copy token </button>
+            <button onclick="">Copy token </button>
 
         </div><br>
 </div>
